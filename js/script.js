@@ -385,7 +385,7 @@ document.getElementById('retryButton').addEventListener('click', () => {
 document.getElementById('quitButton').addEventListener('click', () => {
     setTimeout(() => {
         localStorage.removeItem('selectedFunction');
-        window.location.href = '/';
+        window.location.href = 'index.html';
     }, 1000);
 });
 
