@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Trig Escape</title>
+    <script src="js/sounds.js"></script>
+    <script src="js/startSounds.js" defer></script>
+    <link rel="stylesheet" href="css/startpage.css">
+</head>
+<body>
+    <div class="start-page">
+        <button id="startButton">Start Journey</button>
+        <div class="game-description">
+            Help the get to the finish line by using and adjusting trig functions
+        </div>
+    </div>
+
+    <div class="function-select" id="functionSelect">
+      <h2>Choose Your Path</h2>
+      <button class="function-option" data-function="sine">Sine Wave</button>
+      <button class="function-option" data-function="cosine">Cosine Curve</button>
+      <button class="function-option" data-function="tangent">Tangent Path</button>
+      <button id="confirmFunction" class="function-option">Proceed</button>
+    </div>
+
+    <script>
+    let selectedFunction = 'sine';
+    
+    document.getElementById('startButton').addEventListener('click', () => {
+      document.getElementById('functionSelect').style.display = 'block';
+    });
+
+    document.querySelectorAll('.function-option').forEach(btn => {
+      btn.addEventListener('click', function() {
+        if(this.dataset.function) {
+          selectedFunction = this.dataset.function;
+          // Update visual feedback
+          document.querySelectorAll('.function-option').forEach(b => 
+            b.style.background = 'linear-gradient(45deg, #1a73e8, #ff4444, #ff8f00)'
+          );
+          this.style.background = '#4caf50';
+        }
+      });
+    });
+
+    document.getElementById('confirmFunction').addEventListener('click', () => {
+      localStorage.setItem('selectedFunction', selectedFunction);
+      window.location.href = 'gamePage.html'; // Or your game page URL
+    });
+    </script>
+</body>
+</html>

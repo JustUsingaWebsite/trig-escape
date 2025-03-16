@@ -1,0 +1,168 @@
+/* Base styles */
+body {
+  margin: 0;
+  padding: 0;
+  font-family: 'Arial', sans-serif;
+  background: #1a1a2e;
+  color: white;
+  overflow: hidden;
+}
+
+/* Layer 1: Game canvas */
+#gameCanvas {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  z-index: 1;
+}
+
+/* Layer 2: Blur overlay */
+.blur-layer {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 35vh;
+  background: rgba(0, 0, 0, 0.3);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px); /* For Safari */
+  z-index: 2;
+}
+
+/* Layer 3: Controls panel */
+.controls-panel {
+  position: fixed;
+  bottom: 12vh;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 3;
+  background: linear-gradient(45deg, rgba(26, 115, 232, 0.9), rgba(255, 68, 68, 0.9), rgba(255, 143, 0, 0.9));
+  padding: 1.5rem;
+  border-radius: 20px;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+  max-width: 90vw;
+  width: 600px;
+  transition: all 0.3s ease;
+}
+
+.controls-panel.collapsed {
+  transform: translateX(-50%) translateY(calc(100% - 40px));
+  padding: 0.5rem 1.5rem;
+}
+
+.toggle-button {
+  position: absolute;
+  top: -30px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: rgba(255, 255, 255, 0.9);
+  border: none;
+  border-radius: 15px 15px 0 0;
+  padding: 5px 20px;
+  color: #1a1a2e;
+  cursor: pointer;
+  font-weight: bold;
+  transition: all 0.3s ease;
+}
+
+.toggle-button:hover {
+  background: white;
+}
+
+#controls {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1rem;
+  margin-bottom: 1.5rem;
+  max-height: 300px;
+  overflow: hidden;
+  transition: all 0.3s ease;
+}
+
+.controls-panel.collapsed #controls {
+  max-height: 0;
+  margin-bottom: 0;
+  opacity: 0;
+}
+
+/* Add these styles to your CSS */
+.lose-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 9999;
+  pointer-events: none;
+  opacity: 0;
+  transition: opacity 0.5s;
+}
+
+.lose-overlay.active {
+  pointer-events: all;
+  opacity: 1;
+}
+
+.death-content {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background: rgba(0, 0, 0, 0.8);
+  padding: 2rem;
+  border-radius: 15px;
+  border: 2px solid #ff4444;
+  text-align: center;
+  opacity: 0;
+  transition: opacity 0.3s;
+}
+
+.death-content.visible {
+  opacity: 1;
+}
+
+.icon-button {
+  background: none;
+  border: 2px solid #fff;
+  border-radius: 50px;
+  color: white;
+  padding: 1rem 2rem;
+  margin: 1rem;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  transition: all 0.3s ease;
+}
+
+.icon-button:hover {
+  background: rgba(255, 255, 255, 0.1);
+  transform: scale(1.05);
+}
+
+.icon-button svg {
+  fill: currentColor;
+}
+
+@keyframes shake {
+  0% { transform: translate(1px, 1px) rotate(0deg); }
+  10% { transform: translate(-1px, -2px) rotate(-1deg); }
+  20% { transform: translate(-3px, 0px) rotate(1deg); }
+  30% { transform: translate(3px, 2px) rotate(0deg); }
+  40% { transform: translate(1px, -1px) rotate(1deg); }
+  50% { transform: translate(-1px, 2px) rotate(-1deg); }
+  60% { transform: translate(-3px, 1px) rotate(0deg); }
+  70% { transform: translate(3px, 1px) rotate(-1deg); }
+  80% { transform: translate(-1px, -1px) rotate(1deg); }
+  90% { transform: translate(1px, 2px) rotate(0deg); }
+  100% { transform: translate(1px, -2px) rotate(-1deg); }
+}
+
+@keyframes redFlicker {
+  0% { background-color: rgba(255, 0, 0, 0.3); }
+  50% { background-color: rgba(255, 0, 0, 0.7); }
+  100% { background-color: rgba(255, 0, 0, 0.3); }
+}
+ 
