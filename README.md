@@ -64,7 +64,7 @@ You control a determined fish trying to escape a dangerous mathematical sea. The
 `click.wav` - Satisfying interface feedback  
 
 ## 🚀 Get Swimming!
-[Play Now](#) | [View Source](#)  
+[Play Now](https://justusingawebsite.github.io/trig-escape/) | [View Source](js/script.js)
 
 *"The most fun you'll have solving equations this decade!"*  
 *- Math Game Monthly-*
@@ -74,5 +74,5 @@ You control a determined fish trying to escape a dangerous mathematical sea. The
 🔁 **Retry Philosophy**  
 Failure means progress! Each attempt reveals more about the obstacle patterns. The current record is **3 tries** - can you beat it?
 
-Created with ❤️ by [Your Name]  
-Sound effects by [Attribution] | Fish art by [Artist Name]
+Created with ❤️ by [Daniel Rosales]  
+Sound effects by [@BloodPixelHero](https://freesound.org/people/BloodPixelHero/) | Fish art by [some random guy's post on tenor]
