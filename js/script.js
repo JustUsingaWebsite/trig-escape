@@ -30,10 +30,22 @@ const baseFunctionType = localStorage.getItem('selectedFunction') || 'sine'; //f
 console.log("Base function type (obstacles):", baseFunctionType);
 
 // Base function parameters
-const amplitude = 50; // tan 5
-const frequency = 0.2; // 0.02
-const phase = 0; // 1.55
-const baseVerticalShift = canvas.height / 2;
+var amplitude = 50; // tan 5
+var frequency = 0.2; // 0.02
+var phase = 0; // 1.55
+var baseVerticalShift = canvas.height / 2;
+
+if (baseFunctionType === functionTypes[1]){
+amplitude = 65;
+frequency = 0.02;
+phase = 3.3
+}
+
+if (baseFunctionType === functionTypes[2]){
+amplitude = 5;
+frequency = 0.02;
+phase = 1.55
+}
 
 birdAmplitudeInput.defaultValue = amplitude
 birdFrequencyInput.defaultValue = frequency
